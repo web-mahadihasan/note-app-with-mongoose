@@ -9,7 +9,7 @@ export const createNote = async (req: Request, res: Response) => {
 }
 
 export const getNotes = async (req: Request, res: Response) => {
-    const notes = await Note.find()
+    const notes = await Note.find().populate('user', 'name email')
     res.status(200).json({message: "Note get successfully", notes: notes})
 }
 

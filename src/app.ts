@@ -1,5 +1,6 @@
 import express, { type Application, type Request, type Response } from "express"
-import noteRouter from "./router/noteRouter.js"
+import noteRouter from "./router/note.route.js"
+import userRouter from "./router/users.route.js"
 
 const app: Application = express()
 
@@ -10,5 +11,7 @@ app.get("/", (req: Request, res: Response) => {
 })
 
 app.use("/api/v1/note", noteRouter)
+app.use("/api/v1/users", userRouter)
 
 export default app;
+    
